@@ -3,7 +3,7 @@
 #include <time.h>
 /**
  * main - Entry point
- * This program prints the combination of two digit numbers
+ * This program prints the combination of three digit numbers
  * Return: Always 0(Success)
  */
 int main(void)
