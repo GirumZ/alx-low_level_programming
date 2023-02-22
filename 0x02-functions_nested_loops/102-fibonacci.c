@@ -10,10 +10,10 @@ int main(void)
 	int n3 = n1 + n2;
 	int i;
 
-	printf("%d, %d, ", n1, n2);
+	printf("%u, %u, ", n1, n2);
 	for (i = 0 ; i <= 48 ; i++)
 	{
-		printf("%d, ", n3);
+		printf("%u, ", n3);
 		n1 = n2;
 		n2 = n3;
 		n3 = n1 + n2;
