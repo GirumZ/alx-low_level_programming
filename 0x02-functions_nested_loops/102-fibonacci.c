@@ -1,24 +1,27 @@
 #include <stdio.h>
 /**
  * main - prints fibonacci sequence
- * Return: Always 0 (success)
+ * Return: Alway 0 (Success)
  */
 int main(void)
 {
-	int n1 = 1;
-	int n2 = 2;
-	int n3 = n1 + n2;
-	int i;
+	int x = 0;
+	long y = 1, z = 2;
 
-	printf("%u, %u, ", n1, n2);
-	for (i = 0 ; i <= 48 ; i++)
+	while (x < 50)
 	{
-		printf("%u, ", n3);
-		n1 = n2;
-		n2 = n3;
-		n3 = n1 + n2;
+		if (x == 0)
+			printf("%u", y);
+		else if (x == 1)
+			printf(", %u", z);
+		else
+		{
+			z += y;
+			y = z - y;
+			printf(", %u", z);
+		}
+		++x;
 	}
+	printf("\n");
 	return (0);
 }
-
-
