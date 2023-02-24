@@ -5,20 +5,20 @@
  */
 int main(void)
 {
-	int x = 0;
-	int y = 1, z = 2;
+	long long int x = 0;
+	long long int y = 1, z = 2;
 
 	while (x < 50)
 	{
 		if (x == 0)
-			printf("%u", y);
+			printf("%lld", y);
 		else if (x == 1)
-			printf(", %u", z);
+			printf(", %lld", z);
 		else
 		{
 			z += y;
 			y = z - y;
-			printf(", %u", z);
+			printf(", %lld", z);
 		}
 		++x;
 	}
