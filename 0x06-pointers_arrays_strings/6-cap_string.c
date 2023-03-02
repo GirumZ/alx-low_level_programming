@@ -29,6 +29,10 @@ char *cap_string(char *s)
 				continue;
 			}
 		}
+		else
+		{
+			continue;
+		}
 	}
 	return (s);
 }
