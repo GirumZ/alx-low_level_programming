@@ -18,7 +18,7 @@ char *leet(char *s)
 			if (*s == x[i] || *s == x[i] - 32)
 				*s = y[i] + '0';
 		}
-		s++
+		s++;
 	}
 	return (r);
 }
