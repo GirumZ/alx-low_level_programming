@@ -7,24 +7,24 @@
 
 int is_prime_number(int n)
 {
-	return (test(n, 2));
+	return (test1(n, 2));
 }
 
 /**
- * test - tests if a number is devisible only by 1 and by itself
+ * test1 - tests if a number is devisible only by 1 and by itself
  * @n: the number being tested
  * @i: testing number
  *
  * Return: 1 if the number is prime 0 if not
  */
 
-int test(int n, int i)
+int test1(int n, int i)
 {
 	if (n <= 1)
 		return (0);
 	else if (n % i == 0 && n != i)
 		return (0);
 	else if (i < n)
-		return (test(n, i + 1));
+		return (test1(n, i + 1));
 	return (1);
 }
