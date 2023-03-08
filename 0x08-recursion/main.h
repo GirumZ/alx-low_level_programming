@@ -16,6 +16,7 @@ int test1(int n, int i);
 int test_pal(char *first, char *last);
 char *last(char *s);
 int is_palindrome(char *s);
+int wildcmp(char *s1, char *s2);
 
 
 #endif /* MAIN_H */
