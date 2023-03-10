@@ -5,29 +5,24 @@
  * @argc: number of arguments
  * @argv: array of arguments
  *
- * Return: Always 0 (success)
+ * Return: Always 0 (success) for error 1
  */
 
 int main(int argc, char *argv[])
 {
-	int i;
-	int sum = 0;
+	int i, j, sum = 0;
 
-	for (i = 1 ; i < argc ; i++)
+	for (i = 1; i < argc; i++)
 	{
-		if (argc == 1)
-			printf("%d\n", sum);
-		else if (argv[i] != 0 && atoi(argv[i]) == 0)
+		for (j = 0; argv[i][j]; j++)
 		{
-			printf("Error\n");
-			return (1);
+			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
-		else if (atoi(argv[i]) <= 0)
-		{
-			printf("Error\n");
-			return (1);
-		}
-		sum += atoi(argv[i]);
+		sum = sum + atoi(argv[i]);
 	}
 	printf("%d\n", sum);
 	return (0);
