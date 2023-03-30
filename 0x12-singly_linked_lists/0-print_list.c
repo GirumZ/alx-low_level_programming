@@ -23,6 +23,8 @@ size_t print_list(const list_t *h)
 			printf("[%u] %s\n", current->len, current->str);
 			count++;
 		}
+		if (current->next == NULL)
+			break;
 		current = current->next;
 	}
 	return (count);
