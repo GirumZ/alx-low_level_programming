@@ -7,11 +7,10 @@
 
 size_t print_listint(const listint_t *h)
 {
-	/* current points to each node at a time*/
-	const listint_t *current = h;
-	/* count - counts the number of nodes */
+	const listint_t *current;
 	size_t count = 0;
 
+	current = h;
 	while (current)
 	{
 		printf("%d\n", current->n);
