@@ -1,38 +1,41 @@
-/**
- * test_pal - check for palindrome
- * @first: character to check with end
- * @last: character to check with start
- * Return: Palindrome 1, Not 0
- */
-int test_pal(char *first, char *last)
-{
-	if (first == last)
-		return (1);
-	if (*first == *last && first + 1 == last)
-		return (1);
-	if (*first == *last)
-		return (test_pal(first + 1, last - 1));
-	return (0);
-}
+#include "main.h"
+#include <string.h>
+
+int checker(char *sp, int first_index, int last_index);
 
 /**
- * last - return a pointer at the last character of a string
- * @s: string reach end of
- * Return: pointer to end of string
+ * is_palindrome - checkes if a string is palindrome or not
+ * @s: the string to be checked
+ * Return: 1 if string is palindrome and 0 if not
  */
-char *last(char *s)
-{
-	if (*s)
-		return (last(s + 1));
-	return (s);
-}
 
-/**
- * is_palindrome - check if string is a palindrome
- * @s: string to check
- * Return: True 1, False 0
- */
 int is_palindrome(char *s)
 {
-	return (test_pal(s, last(s) - 1));
+	int i, len;
+
+	i = 0;
+	len = strlen(s) - 1;
+	return (checker(s, i, len));
+}
+
+/**
+ * checker - checkes if simmetric characters of a string are the same or not
+ * @sp: the string
+ * @first_index: current first index
+ * @last_index: current last index
+ *
+ * Return: 1 if characters are the same and 0 if not
+ */
+
+int checker(char *sp, int first_index, int last_index)
+{
+	if (first_index >= last_index)
+		return (1);
+	if (sp[first_index] == sp[last_index])
+	{
+		first_index++;
+		last_index--;
+		return (checker(sp, first_index, last_index));
+	}
+	return (0);
 }
