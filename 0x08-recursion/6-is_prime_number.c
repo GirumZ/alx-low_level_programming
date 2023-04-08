@@ -1,4 +1,7 @@
 #include "main.h"
+
+int checker(int, int);
+
 /**
  * is_prime_number - checks if a number is prime or not
  * @n: the number to be checked
@@ -7,24 +10,30 @@
 
 int is_prime_number(int n)
 {
-	return (test1(n, 2));
+	int first_try;
+
+	if ((n == 0) || (n == 1) || (n < 0))
+		return (0);
+	first_try = 2;
+	return (checker(n, first_try));
 }
 
 /**
- * test1 - tests if a number is devisible only by 1 and by itself
- * @n: the number being tested
- * @i: testing number
+ * checker - checkes if the first number is divisible by the second
+ * @num: the first number
+ * @try: the second number
  *
- * Return: 1 if the number is prime 0 if not
+ * Return: 0 if it is devisible and 1 if it is not
  */
 
-int test1(int n, int i)
+int checker(int num, int try)
 {
-	if (n <= 1)
+	int next_try;
+
+	if (try >= num)
+		return (1);
+	if ((num % try) == 0)
 		return (0);
-	else if (n % i == 0 && n != i)
-		return (0);
-	else if (i < n)
-		return (test1(n, i + 1));
-	return (1);
+	next_try = try + 1;
+	return (checker(num, next_try));
 }
