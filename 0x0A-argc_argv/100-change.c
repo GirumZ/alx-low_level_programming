@@ -43,7 +43,12 @@ int main(int argc, char *argv[])
 			cents -= 5;
 			changes++;
 		}
-		while (cents < 5 && cents > 0)
+		if (cents < 5 && cents >= 2)
+		{
+			cents -= 2;
+			changes++;
+		}
+		while (cents < 2 && cents > 0)
 		{
 			cents -= 1;
 			changes++;
