@@ -9,25 +9,23 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	int fd;
-	char *buff;
+	int fd, len, true_write;
 
+	len = strlen(text_content);
 	if (filename == NULL)
 		return (-1);
 	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0600);
 	if (fd == -1)
 		return (-1);
-	buff = malloc(sizeof(char) * (strlen(text_content) - 1));
-	if (buff == NULL)
+	if (text_content)
 	{
-		close(fd);
-		return (-1);
-	}
-	if (text_content != NULL)
-	{
-		write(fd, text_content, (strlen(text_content) - 1));
-		if (write(fd, text_content, (strlen(text_content) - 1)) <= 0)
+		true_write = write(fd, text_content, len);
+		if (true_write < 0)
+		{
+			close(fd);
 			return (-1);
+		}
 	}
+	close(fd);
 	return (1);
 }
