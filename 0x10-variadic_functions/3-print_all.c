@@ -10,6 +10,7 @@ void print_all(const char * const format, ...)
 {
 	char specifier[4] = {'c', 'i', 'f', 's'};
 	size_t i, j;
+	char *separator = "";
 	va_list args;
 	fn_list print_fns[] = {
 		{"c", print_char},
@@ -27,9 +28,9 @@ void print_all(const char * const format, ...)
 		{
 			if (format[i] == specifier[j])
 			{
+				printf("%s", separator);
 				print_fns[j].func(args);
-				if (i < (strlen(format) - 1))
-					printf(",");
+				separator = ",";
 			}
 			j++;
 		}
@@ -78,5 +79,10 @@ void print_float(va_list args)
 
 void print_string(va_list args)
 {
-	printf("%s", va_arg(args, char *));
+	char *string;
+
+	string = va_arg(args, char *);
+	if (string == NULL)
+		string = "(nil)";
+	printf("%s", string);
 }
