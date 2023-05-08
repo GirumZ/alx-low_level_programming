@@ -9,7 +9,7 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	int fd, len, true_write;
+	int fd, len, true_write = 0;
 
 	len = strlen(text_content);
 	if (filename == NULL)
