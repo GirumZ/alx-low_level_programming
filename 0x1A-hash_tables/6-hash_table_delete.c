@@ -20,7 +20,7 @@ void hash_item_delete(hash_node_t *item)
 void hash_table_delete(hash_table_t *ht)
 {
 	unsigned long i;
-	hash_node_t *item = NULL, *delete =NULL;
+	hash_node_t *item = NULL, *delete = NULL;
 
 	if (ht == NULL)
 		return;
