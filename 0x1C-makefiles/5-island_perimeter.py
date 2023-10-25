@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" A module containing a function defination for island_perimeter"""
+
 
 def island_perimeter(grid):
     """A function  returns the perimeter of the island described in grid"""
@@ -7,17 +9,17 @@ def island_perimeter(grid):
     rows = len(grid)
     p = 0
 
-    for j in range(1,(rows - 1)):
-        for i in range(1,(columns - 1)):
+    for j in range(1, (rows - 1)):
+        for i in range(1, (columns - 1)):
             if grid[j][i] == 1:
                 p += 4
-                if grid[j-1][i] == 1:
+                if grid[j - 1][i] == 1:
                     p -= 1
-                if grid[j][i-1] == 1:
+                if grid[j][i - 1] == 1:
                     p -= 1
-                if grid[j+1][i] == 1:
+                if grid[j + 1][i] == 1:
                     p -= 1
-                if grid[j][i+1] == 1:
+                if grid[j][i + 1] == 1:
                     p -= 1
 
     return p
